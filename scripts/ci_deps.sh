@@ -5,7 +5,7 @@ go list ./... \
     | grep -v github.com/mitchellh/packer \
     | grep -v '/internal/' \
     | sort -u \
-    | xargs go get -f -u -v -d ; if [ $$? -eq 0 ];
+    | xargs go get -f -u -v -d;
 
 go generate ./...
 
