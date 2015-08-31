@@ -17,7 +17,7 @@
       "inline": [
         "cd /usr/src/github.com/mitchellh/packer",
         "./scripts/ci_deps.sh",
-        "./scripts/build.sh",
+        "./scripts/ci_build.sh",
         "ls -lah bin",
         "ls -lah pkg"
       ]
