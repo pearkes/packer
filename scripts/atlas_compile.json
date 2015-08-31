@@ -10,12 +10,12 @@
     {
       "type": "file",
       "source": ".",
-      "destination": "/usr/src/github.com/hashicorp/terraform"
+      "destination": "/usr/src/github.com/mitchellh/packer"
     },
     {
       "type": "shell",
       "inline": [
-        "cd /usr/src/github.com/hashicorp/terraform",
+        "cd /usr/src/github.com/mitchellh/packer",
         "make updatedeps",
         "make release",
         "ls -lah bin",
