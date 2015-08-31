@@ -1,0 +1,39 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "golang:1.4.2-cross",
+      "commit": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": ".",
+      "destination": "/usr/src/github.com/hashicorp/terraform"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "cd /usr/src/github.com/hashicorp/terraform",
+        "make updatedeps",
+        "make release",
+        "ls -lah bin",
+        "ls -lah pkg"
+      ]
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "artifice",
+        "files": ["slug.tar.gz"]
+      },
+      {
+        "type": "atlas",
+        "artifact": "pearkes/terraform",
+        "artifact_type": "archive"
+      }
+    ]
+  ]
+}
