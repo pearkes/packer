@@ -16,8 +16,8 @@
       "type": "shell",
       "inline": [
         "cd /usr/src/github.com/mitchellh/packer",
-        "make updatedeps",
-        "make release",
+        "./scripts/ci_deps.sh",
+        "./scripts/build.sh",
         "ls -lah bin",
         "ls -lah pkg"
       ]
