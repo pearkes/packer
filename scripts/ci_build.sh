@@ -3,17 +3,9 @@
 # This script builds the application from source for multiple platforms.
 set -e
 
-# Get the parent directory of where this script is.
-SOURCE="${BASH_SOURCE[0]}"
-while [ -h "$SOURCE" ] ; do SOURCE="$(readlink "$SOURCE")"; done
-DIR="$( cd -P "$( dirname "$SOURCE" )/.." && pwd )"
-
-# Change into that directory
-cd $DIR
-
 # Get the git commit
-GIT_COMMIT=$(${APPLICATION_GIT_COMMIT} || "nocommit")
-GIT_DIRTY=$(false)
+GIT_COMMIT=$APPLICATION_GIT_COMMIT
+GIT_DIRTY=false
 
 # If its dev mode, only build for ourself
 if [ "${PACKER_DEV}x" != "x" ]; then
